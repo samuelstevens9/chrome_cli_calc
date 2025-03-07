@@ -1,0 +1,16 @@
+{
+  "name": "CLI Calc",
+  "description": "Quick calculator interface for mathjs.org.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "cli.html",
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
