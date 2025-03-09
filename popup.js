@@ -150,6 +150,11 @@ function scrollToBottom() {
 }
 
 function parseInput(input) {
+    // Check if the first character is an operation and prepend the last bot message
+    const lastBotMessage = getLastBotMessage();
+    if (/^[+\-*/]/.test(input) && lastBotMessage) {
+        return lastBotMessage + input;
+    }
     const regex = /(\d+)\s*([FC])\s*to\s*([FC])/i;
     const match = input.match(regex);
     if (match) {
@@ -159,4 +164,10 @@ function parseInput(input) {
         return `${value} ${fromUnit} to ${toUnit}`;
     }
     return input;
+}
+
+function getLastBotMessage() {
+    const chatLog = JSON.parse(localStorage.getItem('chatLog')) || [];
+    const lastBotEntry = chatLog.reverse().find(entry => entry.sender === 'bot');
+    return lastBotEntry ? lastBotEntry.message : '';
 }
