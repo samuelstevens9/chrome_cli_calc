@@ -22,10 +22,14 @@ body{
 .message{
     padding: 6px;
     /* margin-top: 6px; */
+    /* border: 1px solid #FFF; */
 } 
 .message.user{
     font-weight: bolder;
 }
 .message.bot{
     margin-left: 12px;
+}
+.message span{
+    cursor: pointer;
 }

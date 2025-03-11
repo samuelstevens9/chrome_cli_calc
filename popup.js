@@ -19,7 +19,9 @@ chatForm.addEventListener('submit', function(event) {
     if (messageText !== '') {
         const messageDiv = document.createElement('div');
         messageDiv.className = 'message user';
-        messageDiv.textContent = messageText;
+        const messageSpan = document.createElement('span');
+        messageSpan.textContent = messageText;
+        messageDiv.appendChild(messageSpan);
         chatHistory.appendChild(messageDiv);
         
         // Save user message to localStorage
@@ -38,7 +40,9 @@ chatForm.addEventListener('submit', function(event) {
             }
             const responseDiv = document.createElement('div');
             responseDiv.className = 'message bot';
-            responseDiv.textContent = botMessage;
+            const responseSpan = document.createElement('span');
+            responseSpan.textContent = botMessage;
+            responseDiv.appendChild(responseSpan);
             chatHistory.appendChild(responseDiv);
             
             // Save bot response to localStorage
@@ -48,7 +52,9 @@ chatForm.addEventListener('submit', function(event) {
             const botMessage = 'Error: Invalid expression' + error;
             const responseDiv = document.createElement('div');
             responseDiv.className = 'message bot';
-            responseDiv.textContent = botMessage;
+            const responseSpan = document.createElement('span');
+            responseSpan.textContent = botMessage;
+            responseDiv.appendChild(responseSpan);
             chatHistory.appendChild(responseDiv);
             
             // Save error message to localStorage
@@ -140,7 +146,9 @@ function loadChatLog() {
     chatLog.forEach(entry => {
         const messageDiv = document.createElement('div');
         messageDiv.className = `message ${entry.sender}`;
-        messageDiv.textContent = entry.message;
+        const messageSpan = document.createElement('span');
+        messageSpan.textContent = entry.message;
+        messageDiv.appendChild(messageSpan);
         chatHistory.appendChild(messageDiv);
     });
 }
