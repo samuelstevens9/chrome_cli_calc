@@ -128,7 +128,7 @@ chatHistory.addEventListener('mousemove', function() {
 });
 
 chatHistory.addEventListener('mouseup', function(event) {
-    if (!isDragging && event.target.classList.contains('message')) {
+    if (!isDragging && event.target.tagName === 'SPAN' && event.target.parentElement.classList.contains('message')) {
         chatInput.value += event.target.innerText; // Set chatInput value to clicked message text
         chatInput.focus();
     }
